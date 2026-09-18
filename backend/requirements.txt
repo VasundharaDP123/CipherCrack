@@ -1,0 +1,20 @@
+# --- core web layer ---
+Flask==3.0.3
+Flask-Cors==4.0.1
+Flask-SocketIO==5.3.6
+python-socketio==5.11.2
+python-engineio==4.9.0
+simple-websocket==1.0.0
+
+# --- from-scratch ML (numerics only) ---
+numpy==1.26.4
+pandas==2.2.2
+
+# --- library comparisons for the report ---
+scikit-learn==1.5.0
+hmmlearn==0.3.2
+emcee==3.1.6
+
+# --- experiments / tests ---
+matplotlib==3.9.0
+pytest==8.2.2
