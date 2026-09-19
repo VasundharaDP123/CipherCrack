@@ -89,10 +89,10 @@ export default function Playground() {
           <div className="card space-y-5">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Sliders className="h-4 w-4 text-cyan-400" />
+                <Sliders className="h-4 w-4 text-amber-400" />
                 Proposal Step Size (Standard Dev)
               </h2>
-              <span className="font-mono text-xs font-bold text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-2.5 py-0.5 rounded-full">
+              <span className="font-mono text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full">
                 σ = {Number(stepSize).toFixed(2)}
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function Playground() {
                 onChange={(e) => setStepSize(e.target.value)}
                 onMouseUp={(e) => sample(e.target.value)}
                 onTouchEnd={(e) => sample(stepSize)}
-                className="w-full accent-cyan-400 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-slate-800"
+                className="w-full accent-amber-400 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-slate-800"
               />
               <p className="mt-2 text-xs text-slate-500 leading-relaxed">
                 Release slider to resample 4,000 steps from the 2D Gaussian mixture.
@@ -120,7 +120,7 @@ export default function Playground() {
                   key={preset.value}
                   className={`chip justify-center py-2 text-xs font-medium cursor-pointer transition ${
                     Number(stepSize) === preset.value
-                      ? 'border-cyan-400 bg-cyan-500/20 text-cyan-300 font-bold'
+                      ? 'border-amber-400 bg-amber-500/20 text-amber-300 font-bold'
                       : 'hover:border-slate-600 hover:text-slate-200'
                   }`}
                   onClick={() => {
@@ -223,7 +223,7 @@ export default function Playground() {
                   {comparison.results.map((row) => (
                     <tr key={row.sampler} className="border-b border-slate-800/40 font-mono">
                       <td className="p-2 font-sans font-semibold text-slate-300">{row.sampler}</td>
-                      <td className="p-2 text-right font-bold text-cyan-300">
+                      <td className="p-2 text-right font-bold text-amber-300">
                         {row.error ? '—' : `${(row.acceptance_rate * 100).toFixed(1)}%`}
                       </td>
                       <td className="p-2 text-right text-slate-400">
@@ -245,13 +245,13 @@ export default function Playground() {
           <div className="card space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Compass className="h-4 w-4 text-cyan-400" />
+                <Compass className="h-4 w-4 text-amber-400" />
                 2D Metropolis-Hastings Chain Trajectory
               </h2>
               <span className="chip text-[11px] font-mono">Target: 3-Gaussian Mixture</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Cyan dots show accepted 2D sample locations. Pink crosses show true Gaussian mixture means.
+              Amber dots show accepted 2D sample locations. Rose crosses show true Gaussian mixture means.
             </p>
             <div className="h-[340px] w-full rounded-xl border border-slate-800/80 bg-cyber-950/80 p-2">
               {data && (
@@ -275,18 +275,18 @@ export default function Playground() {
                     <ZAxis range={[6, 6]} />
                     <Tooltip
                       contentStyle={{
-                        background: '#090e1c',
-                        border: '1px solid rgba(0, 242, 254, 0.3)',
+                        background: '#0e0b16',
+                        border: '1px solid rgba(245, 158, 11, 0.3)',
                         borderRadius: 12,
                         fontSize: 12,
                         fontFamily: 'monospace',
                       }}
                       formatter={(v) => (typeof v === 'number' ? v.toFixed(2) : v)}
                     />
-                    <Scatter data={data.samples} fill="#00f2fe" fillOpacity={0.3} />
+                    <Scatter data={data.samples} fill="#f59e0b" fillOpacity={0.35} />
                     <Scatter
                       data={data.components.map((c) => ({ 0: c.mean[0], 1: c.mean[1] }))}
-                      fill="#ff007f"
+                      fill="#ff2a6d"
                       shape="cross"
                     />
                   </ScatterChart>

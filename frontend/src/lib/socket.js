@@ -6,9 +6,7 @@ let socket = null
 
 export function getSocket() {
   if (!socket) {
-    const isDev = typeof window !== 'undefined' && window.location.port === '5173'
-    const target = isDev ? `http://${window.location.hostname}:5000` : '/'
-    socket = io(target, {
+    socket = io({
       transports: ['polling', 'websocket'],
       autoConnect: true,
       reconnection: true,

@@ -182,7 +182,7 @@ export default function Challenge() {
               </option>
             ))}
           </select>
-          <button className="btn-primary shadow-lg shadow-cyan-500/25" onClick={() => newGame()}>
+          <button className="btn-primary shadow-lg shadow-amber-500/25" onClick={() => newGame()}>
             <RefreshCw className="h-4 w-4" />
             New Challenge Puzzle
           </button>
@@ -248,7 +248,7 @@ export default function Challenge() {
                 <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 font-display mb-1.5">
                   Ciphertext Challenge
                 </div>
-                <div className="font-mono text-xs max-h-36 overflow-auto break-words rounded-xl border border-slate-800 bg-cyber-950 p-4 text-cyan-300 leading-relaxed">
+                <div className="font-mono text-xs max-h-36 overflow-auto break-words rounded-xl border border-slate-800 bg-cyber-950 p-4 text-amber-300 leading-relaxed">
                   {puzzle.ciphertext}
                 </div>
               </div>
@@ -281,7 +281,7 @@ export default function Challenge() {
               <div>
                 <div className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center justify-between border-b border-slate-800/80 pb-2.5">
                   <span>1. Select Ciphertext Letter</span>
-                  {selected && <span className="text-cyan-400 font-mono text-[11px]">Selected: [{selected}]</span>}
+                  {selected && <span className="text-amber-400 font-mono text-[11px]">Selected: [{selected}]</span>}
                 </div>
                 <div className="flex flex-wrap gap-2 pt-3">
                   {cipherLetters.map((letter) => (
@@ -291,7 +291,7 @@ export default function Challenge() {
                       onDoubleClick={() => clearLetter(letter)}
                       className={`font-mono text-xs rounded-lg border px-2.5 py-1.5 transition-all cursor-pointer ${
                         selected === letter
-                          ? 'border-cyan-400 bg-cyan-500/20 text-cyan-200 font-bold shadow-md shadow-cyan-500/30'
+                          ? 'border-amber-400 bg-amber-500/20 text-amber-200 font-bold shadow-md shadow-amber-500/30'
                           : mapping[letter]
                             ? 'border-purple-500/30 bg-purple-500/10 text-purple-200 font-semibold'
                             : 'border-slate-800 bg-cyber-950 text-slate-400 hover:border-slate-700 hover:text-slate-200'
@@ -299,7 +299,7 @@ export default function Challenge() {
                       title="Double-click to clear mapping"
                     >
                       {letter}
-                      <span className="ml-1 text-[10px] text-cyan-400 font-bold">
+                      <span className="ml-1 text-[10px] text-amber-400 font-bold">
                         →{mapping[letter] || '·'}
                       </span>
                     </button>

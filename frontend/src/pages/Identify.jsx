@@ -8,7 +8,7 @@ import {
 import { api } from '../lib/api'
 import { ErrorNote, Field, PageHeader, Spinner, Stat } from '../components/Shared'
 
-const CLUSTER_COLOURS = ['#00f2fe', '#ff007f', '#facc15', '#9d4edd']
+const CLUSTER_COLOURS = ['#f59e0b', '#10b981', '#ff2a6d', '#a855f7']
 
 export default function Identify() {
   const [text, setText] = useState('')
@@ -71,7 +71,7 @@ export default function Identify() {
           <div className="card space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <FileText className="h-4 w-4 text-cyan-400" />
+                <FileText className="h-4 w-4 text-amber-400" />
                 Input Ciphertext Analysis
               </h2>
               <span className="chip text-[11px] font-mono">Statistical Features</span>
@@ -110,7 +110,7 @@ export default function Identify() {
                 {['caesar', 'substitution', 'vigenere', 'transposition'].map((name) => (
                   <button
                     key={name}
-                    className="chip hover:border-cyan-500/40 hover:text-cyan-300 capitalize cursor-pointer transition"
+                    className="chip hover:border-amber-500/40 hover:text-amber-300 capitalize cursor-pointer transition"
                     onClick={() => sample(name)}
                   >
                     {name}
@@ -124,7 +124,7 @@ export default function Identify() {
 
           {/* Result Card */}
           {result && (
-            <div className="card space-y-5 border-cyan-500/30 bg-cyber-900/90 shadow-xl shadow-cyan-950/20">
+            <div className="card space-y-5 border-amber-500/30 bg-cyber-900/90 shadow-xl shadow-amber-950/20">
               <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
                 <div>
                   <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500 font-display">
@@ -132,7 +132,7 @@ export default function Identify() {
                   </div>
                   <div className="font-display text-2xl font-extrabold capitalize text-white flex items-center gap-2">
                     {result.prediction}
-                    <CheckCircle2 className="h-5 w-5 text-cyan-400" />
+                    <CheckCircle2 className="h-5 w-5 text-amber-400" />
                   </div>
                 </div>
                 <Stat
@@ -152,7 +152,7 @@ export default function Identify() {
                     <span className="w-28 text-slate-400 font-medium capitalize">{row.cipher}</span>
                     <div className="h-2.5 flex-1 overflow-hidden rounded-full bg-cyber-950 border border-slate-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-cyan-500 to-purple-500 transition-all duration-500"
+                        className="h-full rounded-full bg-gradient-to-r from-amber-400 via-rose-500 to-purple-500 transition-all duration-500"
                         style={{ width: `${row.probability * 100}%` }}
                       />
                     </div>
@@ -179,7 +179,7 @@ export default function Identify() {
                         <div className="truncate text-[10px] font-bold uppercase tracking-wider text-slate-500 font-display">
                           {name.replace(/_/g, ' ')}
                         </div>
-                        <div className="font-mono text-xs font-bold text-cyan-300 mt-0.5">
+                        <div className="font-mono text-xs font-bold text-amber-300 mt-0.5">
                           {value.toFixed(4)}
                         </div>
                       </div>
@@ -376,7 +376,7 @@ export default function Identify() {
                       </span>
                       <div className="h-2 flex-1 overflow-hidden rounded-full bg-cyber-950 border border-slate-800">
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-cyan-400 to-purple-500"
+                          className="h-full rounded-full bg-gradient-to-r from-amber-400 to-rose-500"
                           style={{ width: `${(row.importance / metrics.top_features[0].importance) * 100}%` }}
                         />
                       </div>

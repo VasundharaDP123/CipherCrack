@@ -72,11 +72,11 @@ export default function Encrypt() {
         <div className="card space-y-5">
           <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-              <FileText className="h-4 w-4 text-cyan-400" />
+              <FileText className="h-4 w-4 text-amber-400" />
               1. Plaintext Message
             </h2>
             <button
-              className="text-xs text-slate-400 hover:text-cyan-400 flex items-center gap-1 transition"
+              className="text-xs text-slate-400 hover:text-amber-400 flex items-center gap-1 transition"
               onClick={() => setText(SAMPLE)}
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -125,7 +125,7 @@ export default function Encrypt() {
                   type="button"
                   title="Generate Random Key"
                 >
-                  <Dices className="h-4 w-4 text-cyan-400" />
+                  <Dices className="h-4 w-4 text-amber-400" />
                   Roll
                 </button>
               </div>
@@ -186,7 +186,7 @@ export default function Encrypt() {
 
               <div>
                 <Field label="Ciphertext Output">
-                  <div className="font-mono text-xs max-h-48 overflow-auto break-words rounded-xl border border-slate-700/60 bg-cyber-950 p-4 leading-relaxed text-cyan-300">
+                  <div className="font-mono text-xs max-h-48 overflow-auto break-words rounded-xl border border-slate-700/60 bg-cyber-950 p-4 leading-relaxed text-amber-300">
                     {result.ciphertext}
                   </div>
                 </Field>

@@ -66,7 +66,7 @@ export default function Arena() {
         blurb="Head-to-head benchmark across all 5 solvers (MCMC, HMM, Hill Climbing, Steepest Ascent, Frequency Analysis) on identical ciphertexts. Standardizes scores under the shared 27x27 bigram language model."
         icon={Swords}
       >
-        <button className="btn-primary shadow-lg shadow-cyan-500/25" onClick={run} disabled={busy}>
+        <button className="btn-primary shadow-lg shadow-amber-500/25" onClick={run} disabled={busy}>
           <Play className="h-4 w-4 fill-current" />
           {busy ? 'Evaluating Solvers...' : 'Run Arena Benchmark'}
         </button>
@@ -78,7 +78,7 @@ export default function Arena() {
           <div className="card space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <FileText className="h-4 w-4 text-cyan-400" />
+                <FileText className="h-4 w-4 text-amber-400" />
                 Benchmark Plaintext Input
               </h2>
               <span className="chip text-[11px] font-mono">Substitution</span>
@@ -95,7 +95,7 @@ export default function Arena() {
             <Field label="Passage Length Limit" hint="(short texts test algorithm bounds)">
               <div className="flex items-center justify-between mb-1">
                 <span className="text-[10px] font-bold uppercase text-slate-500 font-display">Character Cutoff</span>
-                <span className="font-mono text-xs font-bold text-cyan-400">{length} chars</span>
+                <span className="font-mono text-xs font-bold text-amber-400">{length} chars</span>
               </div>
               <input
                 type="range"
@@ -104,7 +104,7 @@ export default function Arena() {
                 step="20"
                 value={length}
                 onChange={(e) => setLength(e.target.value)}
-                className="w-full accent-cyan-400 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-slate-800"
+                className="w-full accent-amber-400 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-slate-800"
               />
             </Field>
 
@@ -121,7 +121,7 @@ export default function Arena() {
               <div className="text-xs font-bold uppercase tracking-widest text-slate-400 font-display">
                 Generated Ciphertext ({puzzle.length} chars)
               </div>
-              <div className="font-mono text-xs max-h-36 overflow-auto break-words rounded-xl border border-slate-800 bg-cyber-950 p-3 text-cyan-300 leading-relaxed">
+              <div className="font-mono text-xs max-h-36 overflow-auto break-words rounded-xl border border-slate-800 bg-cyber-950 p-3 text-amber-300 leading-relaxed">
                 {puzzle.ciphertext}
               </div>
             </div>
@@ -136,10 +136,10 @@ export default function Arena() {
               <div className="card space-y-4">
                 <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
                   <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                    <BarChart3 className="h-4 w-4 text-cyan-400" />
+                    <BarChart3 className="h-4 w-4 text-amber-400" />
                     Decoded Accuracy (%) Across Solvers
                   </h2>
-                  <span className="chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 font-mono text-[11px]">
+                  <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-300 font-mono text-[11px]">
                     Ground Truth Evaluation
                   </span>
                 </div>
@@ -260,7 +260,7 @@ export default function Arena() {
                         <div className="flex items-center justify-between text-xs">
                           <span className="font-bold font-display text-slate-200">{row.label}</span>
                           <span className="font-mono text-[11px] text-slate-500">
-                            Key: <span className="text-cyan-300 font-bold">{row.key}</span>
+                            Key: <span className="text-amber-300 font-bold">{row.key}</span>
                           </span>
                         </div>
                         <div className="font-mono text-xs max-h-20 overflow-auto text-slate-300 leading-relaxed">
@@ -287,10 +287,10 @@ export default function Arena() {
             <div className="card space-y-3">
               <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
                 <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                  <Database className="h-4 w-4 text-cyan-400" />
+                  <Database className="h-4 w-4 text-amber-400" />
                   SQLite Benchmark Execution History
                 </h2>
-                <span className="chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300 font-mono text-[11px]">
+                <span className="chip border-amber-500/30 bg-amber-500/10 text-amber-300 font-mono text-[11px]">
                   Aggregated Run Statistics
                 </span>
               </div>
@@ -309,7 +309,7 @@ export default function Arena() {
                       <td className="p-2 font-sans font-semibold text-slate-300">{row.solver}</td>
                       <td className="p-2 text-right text-slate-400">{row.runs}</td>
                       <td className="p-2 text-right font-bold text-emerald-400">
-                        {(row.mean_accuracy * 100).toFixed(1)}%
+                        {((row.mean_accuracy ?? 0) * 100).toFixed(1)}%
                       </td>
                       <td className="p-2 text-right text-slate-300">
                         {row.mean_seconds.toFixed(2)}s

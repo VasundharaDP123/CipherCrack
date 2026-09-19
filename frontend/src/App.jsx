@@ -27,17 +27,17 @@ function Header({ health }) {
       <div className="mx-auto flex max-w-7xl flex-col gap-3.5 px-4 sm:px-6 py-3.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-cyan-500 to-blue-600 p-0.5 shadow-lg shadow-cyan-500/25">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 p-0.5 shadow-lg shadow-amber-500/25">
               <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-cyber-950">
-                <ShieldCheck className="h-5 w-5 text-cyan-400" />
+                <ShieldCheck className="h-5 w-5 text-amber-400" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display text-xl font-extrabold tracking-tight bg-gradient-to-r from-white via-slate-100 to-cyan-300 bg-clip-text text-transparent">
+                <span className="font-display text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-100 via-amber-300 to-orange-400 bg-clip-text text-transparent">
                   CipherCrack
                 </span>
-                <span className="rounded-md bg-cyan-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-cyan-400 border border-cyan-500/20 font-display">
+                <span className="rounded-md bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 border border-amber-500/20 font-display">
                   v2.0 Live
                 </span>
               </div>
@@ -51,11 +51,11 @@ function Header({ health }) {
             {health ? (
               <>
                 <div className="hidden sm:inline-flex chip font-mono">
-                  <Database className="h-3.5 w-3.5 text-cyan-400" />
+                  <Database className="h-3.5 w-3.5 text-amber-400" />
                   {(health.language_model.bigrams_counted / 1e6).toFixed(1)}M bigrams
                 </div>
                 <div className="hidden sm:inline-flex chip font-mono">
-                  <Cpu className="h-3.5 w-3.5 text-purple-400" />
+                  <Cpu className="h-3.5 w-3.5 text-rose-400" />
                   RF {health.identifier_ready ? `${(health.identifier_accuracy * 100).toFixed(1)}%` : 'offline'}
                 </div>
                 <div className="chip-glow font-mono">
@@ -85,7 +85,7 @@ function Header({ health }) {
                 className={({ isActive }) =>
                   `flex items-center gap-2 whitespace-nowrap rounded-xl px-3.5 py-2 text-xs font-semibold tracking-wide transition-all duration-200 font-display ${
                     isActive
-                      ? 'bg-gradient-to-r from-cyan-500/20 to-blue-500/20 text-cyan-300 border border-cyan-500/30 shadow-md shadow-cyan-950/50'
+                      ? 'bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300 border border-amber-500/30 shadow-md shadow-amber-950/50'
                       : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent'
                   }`
                 }

@@ -8,7 +8,7 @@ export function PageHeader({ title, blurb, children, icon: Icon }) {
       <div>
         <div className="flex items-center gap-3">
           {Icon && (
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-amber-500/10 border border-amber-500/20 text-amber-400">
               <Icon className="h-5 w-5" />
             </div>
           )}
@@ -28,7 +28,7 @@ export function Stat({ label, value, sub, tone = 'default', icon: Icon }) {
     default: 'text-slate-100 border-slate-800/80 bg-cyber-950/60',
     good: 'text-emerald-400 border-emerald-500/20 bg-emerald-500/5',
     warn: 'text-amber-400 border-amber-500/20 bg-amber-500/5',
-    accent: 'text-cyan-400 border-cyan-500/20 bg-cyan-500/5',
+    accent: 'text-amber-400 border-amber-500/20 bg-amber-500/5',
     purple: 'text-purple-400 border-purple-500/20 bg-purple-500/5',
   }
 
@@ -36,7 +36,7 @@ export function Stat({ label, value, sub, tone = 'default', icon: Icon }) {
     default: 'text-slate-100',
     good: 'text-emerald-400',
     warn: 'text-amber-400',
-    accent: 'text-cyan-400',
+    accent: 'text-amber-400',
     purple: 'text-purple-400',
   }
 
@@ -58,8 +58,8 @@ export function Stat({ label, value, sub, tone = 'default', icon: Icon }) {
 
 export function Spinner({ label = 'computing' }) {
   return (
-    <span className="inline-flex items-center gap-2 text-xs font-medium text-cyan-400 bg-cyan-500/10 border border-cyan-500/20 px-3 py-1.5 rounded-full">
-      <Loader2 className="h-3.5 w-3.5 animate-spin text-cyan-400" />
+    <span className="inline-flex items-center gap-2 text-xs font-medium text-amber-400 bg-amber-500/10 border border-amber-500/20 px-3 py-1.5 rounded-full">
+      <Loader2 className="h-3.5 w-3.5 animate-spin text-amber-400" />
       {label}
     </span>
   )
@@ -87,7 +87,7 @@ export function KeyGrid({ decryptionKey, previousKey, truthKey }) {
         const tone =
           correct === null
             ? changed
-              ? 'border-cyan-400 bg-cyan-500/20 text-cyan-200 shadow-sm shadow-cyan-500/30'
+              ? 'border-amber-400 bg-amber-500/20 text-amber-200 shadow-sm shadow-amber-500/30'
               : 'border-slate-700/60 bg-cyber-950/80 text-slate-200'
             : correct
               ? 'border-emerald-500/50 bg-emerald-500/15 text-emerald-200'
@@ -125,7 +125,7 @@ export function LiveText({ text, previous, truth, limit = 900 }) {
         let className = 'text-slate-200'
         if (correct === true) className = 'text-emerald-400 font-semibold'
         else if (correct === false) className = 'text-slate-500'
-        if (changed) className += ' bg-cyan-500/30 text-cyan-200 rounded px-0.5 animate-pulse'
+        if (changed) className += ' bg-amber-500/30 text-amber-200 rounded px-0.5 animate-pulse'
         return (
           <span key={index} className={className}>
             {character}

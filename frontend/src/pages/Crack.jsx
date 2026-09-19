@@ -164,7 +164,7 @@ export default function Crack() {
               Stop Solver
             </button>
           ) : (
-            <button className="btn-primary shadow-lg shadow-cyan-500/25" onClick={start} disabled={!ciphertext.trim()}>
+            <button className="btn-primary shadow-lg shadow-amber-500/25" onClick={start} disabled={!ciphertext.trim()}>
               <Play className="h-4 w-4 fill-current" />
               Start Live Solve
             </button>
@@ -182,7 +182,7 @@ export default function Crack() {
           <div className="card space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <FileText className="h-4 w-4 text-cyan-400" />
+                <FileText className="h-4 w-4 text-amber-400" />
                 Solver Configuration
               </h2>
               <span className="chip text-[11px] font-mono">27x27 Bigram Model</span>
@@ -288,7 +288,7 @@ export default function Crack() {
                     <span className="w-24 text-slate-400 font-medium capitalize">{row.cipher}</span>
                     <div className="h-2 flex-1 overflow-hidden rounded-full bg-cyber-950 border border-slate-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-purple-500 to-cyan-400 transition-all duration-300"
+                        className="h-full rounded-full bg-gradient-to-r from-purple-500 to-amber-400 transition-all duration-300"
                         style={{ width: `${row.probability * 100}%` }}
                       />
                     </div>
@@ -317,7 +317,7 @@ export default function Crack() {
           <div className="card space-y-4">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Activity className="h-4 w-4 text-cyan-400" />
+                <Activity className="h-4 w-4 text-amber-400" />
                 Live Telemetry &amp; Convergence Graph
               </h2>
               <div className="flex items-center gap-3">
@@ -389,8 +389,8 @@ export default function Crack() {
                   />
                   <Tooltip
                     contentStyle={{
-                      background: '#090e1c',
-                      border: '1px solid rgba(0, 242, 254, 0.3)',
+                      background: '#0e0b16',
+                      border: '1px solid rgba(245, 158, 11, 0.3)',
                       borderRadius: 12,
                       fontSize: 12,
                       fontFamily: 'monospace',
@@ -405,7 +405,7 @@ export default function Crack() {
                     type="monotone"
                     dataKey="score"
                     name="score"
-                    stroke="#00f2fe"
+                    stroke="#f59e0b"
                     strokeWidth={1.5}
                     dot={false}
                     isAnimationActive={false}
@@ -414,7 +414,7 @@ export default function Crack() {
                     type="monotone"
                     dataKey="best"
                     name="best"
-                    stroke="#ff007f"
+                    stroke="#ff2a6d"
                     strokeWidth={2}
                     dot={false}
                     isAnimationActive={false}
@@ -428,7 +428,7 @@ export default function Crack() {
           <div className="card space-y-3">
             <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Grid className="h-4 w-4 text-cyan-400" />
+                <Grid className="h-4 w-4 text-amber-400" />
                 Substitution Key Matrix (A–Z)
               </h2>
               <span className="text-[11px] text-slate-500 font-mono">Cell scale effect on proposal swaps</span>

@@ -4,48 +4,48 @@
 
 @layer base {
   body {
-    @apply bg-[#060913] text-slate-100 antialiased font-sans selection:bg-cyan-500/30 selection:text-cyan-200 min-h-screen;
+    @apply bg-[#0b0a10] text-slate-100 antialiased font-sans selection:bg-amber-500/30 selection:text-amber-200 min-h-screen;
     background-image:
-      radial-gradient(1000px 500px at 15% -10%, rgba(0, 242, 254, 0.08), transparent 60%),
-      radial-gradient(900px 500px at 85% 15%, rgba(157, 78, 221, 0.07), transparent 60%),
-      radial-gradient(800px 600px at 50% 110%, rgba(16, 185, 129, 0.05), transparent 70%);
+      radial-gradient(1000px 500px at 15% -10%, rgba(245, 158, 11, 0.11), transparent 60%),
+      radial-gradient(900px 500px at 85% 15%, rgba(168, 85, 247, 0.09), transparent 60%),
+      radial-gradient(800px 600px at 50% 110%, rgba(16, 185, 129, 0.07), transparent 70%);
     background-attachment: fixed;
   }
 }
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-slate-800/80 bg-cyber-900/70 p-5 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-slate-700/80;
+    @apply rounded-2xl border border-slate-800/80 bg-cyber-900/80 p-5 shadow-2xl backdrop-blur-xl transition-all duration-300 hover:border-slate-700/80;
   }
   .card-glow {
-    @apply card relative overflow-hidden border-cyan-500/20 shadow-cyan-950/20 hover:border-cyan-500/40 hover:shadow-cyan-950/40;
+    @apply card relative overflow-hidden border-amber-500/25 shadow-amber-950/20 hover:border-amber-500/45 hover:shadow-amber-950/40;
   }
   .label {
     @apply mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-slate-400 font-display;
   }
   .input {
-    @apply w-full rounded-xl border border-slate-700/60 bg-cyber-950/80 px-3.5 py-2.5 text-sm font-mono text-slate-100 outline-none transition-all duration-200 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 placeholder:text-slate-600;
+    @apply w-full rounded-xl border border-slate-700/70 bg-cyber-950/90 px-3.5 py-2.5 text-sm font-mono text-slate-100 outline-none transition-all duration-200 focus:border-amber-400 focus:ring-2 focus:ring-amber-400/20 placeholder:text-slate-600;
   }
   .btn {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display;
   }
   .btn-primary {
-    @apply btn bg-gradient-to-r from-cyan-400 to-teal-400 text-cyber-950 font-bold shadow-lg shadow-cyan-500/25 hover:from-cyan-300 hover:to-teal-300 hover:shadow-cyan-500/40;
+    @apply btn bg-gradient-to-r from-amber-400 via-amber-500 to-orange-500 text-slate-950 font-extrabold shadow-lg shadow-amber-500/25 hover:from-amber-300 hover:via-amber-400 hover:to-orange-400 hover:shadow-amber-500/40;
   }
   .btn-secondary {
-    @apply btn bg-gradient-to-r from-purple-500 to-indigo-500 text-white font-bold shadow-lg shadow-purple-500/25 hover:from-purple-400 hover:to-indigo-400;
+    @apply btn bg-gradient-to-r from-rose-500 via-purple-600 to-indigo-600 text-white font-extrabold shadow-lg shadow-rose-500/25 hover:from-rose-400 hover:via-purple-500 hover:to-indigo-500;
   }
   .btn-ghost {
-    @apply btn border border-slate-700/80 bg-cyber-850/60 text-slate-200 hover:bg-slate-800/80 hover:border-slate-600 hover:text-white;
+    @apply btn border border-slate-700/80 bg-cyber-850/60 text-slate-200 hover:bg-slate-800/80 hover:border-amber-500/40 hover:text-amber-300;
   }
   .btn-danger {
-    @apply btn bg-gradient-to-r from-rose-500 to-pink-500 text-white font-bold shadow-lg shadow-rose-500/25 hover:from-rose-400 hover:to-pink-400;
+    @apply btn bg-gradient-to-r from-rose-600 to-pink-600 text-white font-bold shadow-lg shadow-rose-600/25 hover:from-rose-500 hover:to-pink-500;
   }
   .chip {
     @apply inline-flex items-center gap-1.5 rounded-full border border-slate-700/80 bg-cyber-850/80 px-3 py-1 text-xs font-medium text-slate-300 backdrop-blur-md;
   }
   .chip-glow {
-    @apply chip border-cyan-500/30 bg-cyan-500/10 text-cyan-300;
+    @apply chip border-amber-500/30 bg-amber-500/10 text-amber-300;
   }
   .mono {
     @apply font-mono text-xs leading-relaxed tracking-wider;

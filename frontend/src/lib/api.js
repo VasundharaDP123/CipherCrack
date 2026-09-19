@@ -1,9 +1,4 @@
-const getApiBase = () => {
-  if (typeof window !== 'undefined' && window.location.port === '5173') {
-    return `http://${window.location.hostname}:5000/api`
-  }
-  return '/api'
-}
+const getApiBase = () => '/api'
 
 async function request(path, options = {}) {
   const baseUrl = getApiBase()
