@@ -23,26 +23,26 @@ const PAGES = [
 
 function Header({ health }) {
   return (
-    <header className="sticky top-0 z-40 border-b border-slate-800/80 bg-cyber-950/85 backdrop-blur-xl shadow-xl shadow-black/40">
+    <header className="sticky top-0 z-40 border-b border-zinc-800/80 bg-zinc-950/85 backdrop-blur-xl shadow-lg shadow-black/50">
       <div className="mx-auto flex max-w-7xl flex-col gap-3.5 px-4 sm:px-6 py-3.5">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 p-0.5 shadow-lg shadow-amber-500/25">
-              <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-cyber-950">
-                <ShieldCheck className="h-5 w-5 text-amber-400" />
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500 p-0.5 shadow-glow">
+              <div className="flex h-full w-full items-center justify-center rounded-[10px] bg-zinc-950">
+                <ShieldCheck className="h-5 w-5 text-indigo-400" />
               </div>
             </div>
             <div>
               <div className="flex items-center gap-2">
-                <span className="font-display text-xl font-extrabold tracking-tight bg-gradient-to-r from-amber-100 via-amber-300 to-orange-400 bg-clip-text text-transparent">
+                <span className="font-display text-xl font-extrabold tracking-tight bg-gradient-to-r from-zinc-100 via-indigo-200 to-purple-300 bg-clip-text text-transparent">
                   CipherCrack
                 </span>
-                <span className="rounded-md bg-amber-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-amber-400 border border-amber-500/20 font-display">
-                  v2.0 Live
+                <span className="rounded-md bg-indigo-500/10 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wider text-indigo-400 border border-indigo-500/20 font-display">
+                  v2.0 Enterprise
                 </span>
               </div>
-              <p className="hidden text-xs font-medium text-slate-400 sm:block">
-                MCMC &amp; HMM Unsupervised Cipher Breaking &amp; Cryptanalysis
+              <p className="hidden text-xs font-medium text-zinc-400 sm:block">
+                MCMC &amp; HMM Unsupervised Cipher Breaking &amp; Cryptanalysis Engine
               </p>
             </div>
           </div>
@@ -51,11 +51,11 @@ function Header({ health }) {
             {health ? (
               <>
                 <div className="hidden sm:inline-flex chip font-mono">
-                  <Database className="h-3.5 w-3.5 text-amber-400" />
+                  <Database className="h-3.5 w-3.5 text-indigo-400" />
                   {(health.language_model.bigrams_counted / 1e6).toFixed(1)}M bigrams
                 </div>
                 <div className="hidden sm:inline-flex chip font-mono">
-                  <Cpu className="h-3.5 w-3.5 text-rose-400" />
+                  <Cpu className="h-3.5 w-3.5 text-purple-400" />
                   RF {health.identifier_ready ? `${(health.identifier_accuracy * 100).toFixed(1)}%` : 'offline'}
                 </div>
                 <div className="chip-glow font-mono">
@@ -63,7 +63,7 @@ function Header({ health }) {
                     <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                     <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
                   </span>
-                  Backend Connected
+                  Backend Live
                 </div>
               </>
             ) : (
@@ -85,8 +85,8 @@ function Header({ health }) {
                 className={({ isActive }) =>
                   `flex items-center gap-2 whitespace-nowrap rounded-xl px-3.5 py-2 text-xs font-semibold tracking-wide transition-all duration-200 font-display ${
                     isActive
-                      ? 'bg-gradient-to-r from-amber-500/20 to-orange-500/20 text-amber-300 border border-amber-500/30 shadow-md shadow-amber-950/50'
-                      : 'text-slate-400 hover:bg-slate-800/60 hover:text-slate-200 border border-transparent'
+                      ? 'bg-gradient-to-r from-indigo-500/20 to-purple-500/20 text-indigo-300 border border-indigo-500/30 shadow-sm shadow-indigo-950/50'
+                      : 'text-zinc-400 hover:bg-zinc-800/60 hover:text-zinc-200 border border-transparent'
                   }`
                 }
               >
@@ -110,7 +110,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#060913]">
+    <div className="min-h-screen flex flex-col bg-[#09090b]">
       <Header health={health} />
 
       {error && (
@@ -118,7 +118,7 @@ export default function App() {
           <div className="rounded-xl border border-amber-500/30 bg-amber-500/10 p-4 text-xs font-medium text-amber-200 shadow-lg shadow-amber-950/20 flex items-center gap-3">
             <WifiOff className="h-5 w-5 text-amber-400 shrink-0" />
             <div>
-              Cannot connect to Flask backend API ({error}). Make sure backend server is active on port 5000: <code className="font-mono text-cyan-300">python app.py</code> in <code className="font-mono text-cyan-300">backend/</code>.
+              Cannot connect to Flask backend API ({error}). Make sure backend server is active on port 5000: <code className="font-mono text-indigo-300">python app.py</code> in <code className="font-mono text-indigo-300">backend/</code>.
             </div>
           </div>
         </div>
@@ -137,15 +137,15 @@ export default function App() {
         </Routes>
       </main>
 
-      <footer className="border-t border-slate-800/60 bg-cyber-950/60 backdrop-blur-md py-6 mt-10 text-xs text-slate-500">
+      <footer className="border-t border-zinc-800/60 bg-zinc-950/60 backdrop-blur-md py-6 mt-10 text-xs text-zinc-500">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
           <div>
-            <p className="font-medium text-slate-400">CipherCrack — Live MCMC &amp; HMM Substitution Cipher Cryptanalysis</p>
-            <p className="mt-1 text-[11px] text-slate-600">
+            <p className="font-medium text-zinc-400">CipherCrack — Live MCMC &amp; HMM Substitution Cipher Cryptanalysis Workspace</p>
+            <p className="mt-1 text-[11px] text-zinc-600">
               Built with NumPy, Flask-SocketIO &amp; React for BAI702. Bigram language model trained on Gutenberg corpus.
             </p>
           </div>
-          <div className="flex items-center gap-3 font-mono text-[11px] text-slate-400">
+          <div className="flex items-center gap-3 font-mono text-[11px] text-zinc-400">
             <span className="chip">26! ~ 4x10^26 search space</span>
           </div>
         </div>

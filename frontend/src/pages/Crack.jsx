@@ -164,7 +164,7 @@ export default function Crack() {
               Stop Solver
             </button>
           ) : (
-            <button className="btn-primary shadow-lg shadow-amber-500/25" onClick={start} disabled={!ciphertext.trim()}>
+            <button className="btn-primary shadow-lg shadow-indigo-500/25" onClick={start} disabled={!ciphertext.trim()}>
               <Play className="h-4 w-4 fill-current" />
               Start Live Solve
             </button>
@@ -180,9 +180,9 @@ export default function Crack() {
         {/* Controls Column */}
         <div className="space-y-5">
           <div className="card space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <FileText className="h-4 w-4 text-amber-400" />
+            <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-300 font-display flex items-center gap-2">
+                <FileText className="h-4 w-4 text-indigo-400" />
                 Solver Configuration
               </h2>
               <span className="chip text-[11px] font-mono">27x27 Bigram Model</span>
@@ -216,7 +216,7 @@ export default function Crack() {
                   {catalogue?.solvers
                     .filter((s) => s.streams)
                     .map((s) => (
-                      <option key={s.name} value={s.name} className="bg-cyber-950 text-slate-100">
+                      <option key={s.name} value={s.name} className="bg-zinc-950 text-zinc-100">
                         {s.label}
                       </option>
                     ))}
@@ -231,7 +231,7 @@ export default function Crack() {
                   onChange={(e) => setProposal(e.target.value)}
                 >
                   {catalogue?.proposals.map((p) => (
-                    <option key={p.name} value={p.name} className="bg-cyber-950 text-slate-100">
+                    <option key={p.name} value={p.name} className="bg-zinc-950 text-zinc-100">
                       {p.label}
                     </option>
                   ))}
@@ -261,7 +261,7 @@ export default function Crack() {
               </Field>
             </div>
 
-            <div className="rounded-xl border border-slate-800 bg-cyber-950/60 p-3 text-xs text-slate-400 leading-relaxed">
+            <div className="rounded-xl border border-zinc-800 bg-zinc-950/60 p-3 text-xs text-zinc-400 leading-relaxed">
               {catalogue?.solvers.find((s) => s.name === solver)?.blurb}
             </div>
           </div>
@@ -280,19 +280,19 @@ export default function Crack() {
               </div>
               <div className="flex items-baseline justify-between">
                 <span className="text-xl font-extrabold font-display text-white capitalize">{guess.prediction}</span>
-                <span className="text-xs text-slate-400">Class Probability</span>
+                <span className="text-xs text-zinc-400">Class Probability</span>
               </div>
               <div className="space-y-2">
                 {guess.probabilities.map((row) => (
                   <div key={row.cipher} className="flex items-center gap-2 text-xs">
-                    <span className="w-24 text-slate-400 font-medium capitalize">{row.cipher}</span>
-                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-cyber-950 border border-slate-800">
+                    <span className="w-24 text-zinc-400 font-medium capitalize">{row.cipher}</span>
+                    <div className="h-2 flex-1 overflow-hidden rounded-full bg-zinc-950 border border-zinc-800">
                       <div
-                        className="h-full rounded-full bg-gradient-to-r from-purple-500 to-amber-400 transition-all duration-300"
+                        className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-purple-500 transition-all duration-300"
                         style={{ width: `${row.probability * 100}%` }}
                       />
                     </div>
-                    <span className="w-12 text-right font-mono text-slate-300">
+                    <span className="w-12 text-right font-mono text-zinc-300">
                       {(row.probability * 100).toFixed(0)}%
                     </span>
                   </div>
@@ -315,9 +315,9 @@ export default function Crack() {
         {/* Live Decryption Dashboard */}
         <div className="space-y-5">
           <div className="card space-y-4">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Activity className="h-4 w-4 text-amber-400" />
+            <div className="flex items-center justify-between border-b border-zinc-800/80 pb-3">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-300 font-display flex items-center gap-2">
+                <Activity className="h-4 w-4 text-indigo-400" />
                 Live Telemetry &amp; Convergence Graph
               </h2>
               <div className="flex items-center gap-3">
@@ -373,24 +373,24 @@ export default function Crack() {
             </div>
 
             {/* Recharts Convergence Plot */}
-            <div className="mt-2 h-52 w-full rounded-xl border border-slate-800/80 bg-cyber-950/80 p-2">
+            <div className="mt-2 h-52 w-full rounded-xl border border-zinc-800/80 bg-zinc-950/80 p-2">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={history} margin={{ top: 10, right: 15, bottom: 5, left: -20 }}>
-                  <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" vertical={false} />
+                  <CartesianGrid stroke="#27272a" strokeDasharray="3 3" vertical={false} />
                   <XAxis
                     dataKey="iteration"
-                    tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }}
-                    stroke="#334155"
+                    tick={{ fill: '#71717a', fontSize: 10, fontFamily: 'monospace' }}
+                    stroke="#3f3f46"
                   />
                   <YAxis
-                    tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }}
-                    stroke="#334155"
+                    tick={{ fill: '#71717a', fontSize: 10, fontFamily: 'monospace' }}
+                    stroke="#3f3f46"
                     domain={['auto', 'auto']}
                   />
                   <Tooltip
                     contentStyle={{
-                      background: '#0e0b16',
-                      border: '1px solid rgba(245, 158, 11, 0.3)',
+                      background: '#121215',
+                      border: '1px solid rgba(99, 102, 241, 0.3)',
                       borderRadius: 12,
                       fontSize: 12,
                       fontFamily: 'monospace',
@@ -405,7 +405,7 @@ export default function Crack() {
                     type="monotone"
                     dataKey="score"
                     name="score"
-                    stroke="#f59e0b"
+                    stroke="#818cf8"
                     strokeWidth={1.5}
                     dot={false}
                     isAnimationActive={false}
@@ -414,7 +414,7 @@ export default function Crack() {
                     type="monotone"
                     dataKey="best"
                     name="best"
-                    stroke="#ff2a6d"
+                    stroke="#10b981"
                     strokeWidth={2}
                     dot={false}
                     isAnimationActive={false}
@@ -426,20 +426,20 @@ export default function Crack() {
 
           {/* Interactive Key Grid */}
           <div className="card space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Grid className="h-4 w-4 text-amber-400" />
+            <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2.5">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-300 font-display flex items-center gap-2">
+                <Grid className="h-4 w-4 text-indigo-400" />
                 Substitution Key Matrix (A–Z)
               </h2>
-              <span className="text-[11px] text-slate-500 font-mono">Cell scale effect on proposal swaps</span>
+              <span className="text-[11px] text-zinc-500 font-mono">Cell scale effect on proposal swaps</span>
             </div>
             <KeyGrid decryptionKey={keyString} previousKey={previous?.key} />
           </div>
 
           {/* Decoded Text Viewer */}
           <div className="card space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-2.5">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
+            <div className="flex items-center justify-between border-b border-zinc-800/80 pb-2.5">
+              <h2 className="text-xs font-bold uppercase tracking-widest text-zinc-300 font-display flex items-center gap-2">
                 <Zap className="h-4 w-4 text-emerald-400" />
                 Live Decoded Plaintext Stream
               </h2>
@@ -449,12 +449,12 @@ export default function Crack() {
                 </span>
               )}
             </div>
-            <div className="max-h-64 overflow-auto rounded-xl border border-slate-800 bg-cyber-950 p-4">
+            <div className="max-h-64 overflow-auto rounded-xl border border-zinc-800 bg-zinc-950 p-4">
               <LiveText text={text} previous={previous?.text} truth={cleanedTruth || null} />
             </div>
 
             {done?.viterbi_text && (
-              <div className="mt-4 space-y-2 pt-2 border-t border-slate-800/80">
+              <div className="mt-4 space-y-2 pt-2 border-t border-zinc-800/80">
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-bold uppercase tracking-widest text-purple-300 font-display">
                     Viterbi Max-Likelihood Path (HMM State Sequence)
