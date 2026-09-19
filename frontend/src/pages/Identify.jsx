@@ -6,7 +6,7 @@ import {
   CartesianGrid, Cell, ResponsiveContainer, Scatter, ScatterChart, Tooltip, XAxis, YAxis,
 } from 'recharts'
 import { api } from '../lib/api'
-import { ErrorNote, Field, PageHeader, Spinner, Stat } from '../components/Shared'
+import { ErrorNote, Field, PageHeader, Spinner, Stat, FrequencyHistogram } from '../components/Shared'
 
 const CLUSTER_COLOURS = ['#00ff87', '#f97316', '#a855f7', '#06b6d4']
 
@@ -121,6 +121,8 @@ export default function Identify() {
 
             <ErrorNote error={error} />
           </div>
+
+          <FrequencyHistogram text={text} title="Input Ciphertext Monogram Frequency Spectrum" label="Ciphertext %" />
 
           {/* Result Card */}
           {result && (

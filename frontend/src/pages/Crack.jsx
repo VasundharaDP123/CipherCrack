@@ -9,7 +9,7 @@ import {
 import { api } from '../lib/api'
 import { getSocket } from '../lib/socket'
 import {
-  ErrorNote, Field, KeyGrid, LiveText, PageHeader, Spinner, Stat,
+  ErrorNote, Field, KeyGrid, LiveText, PageHeader, Spinner, Stat, FrequencyHistogram,
 } from '../components/Shared'
 
 const DEMO =
@@ -437,6 +437,13 @@ export default function Crack() {
             </div>
             <KeyGrid decryptionKey={keyString} previousKey={previous?.key} />
           </div>
+
+          {/* Letter Frequency Histogram Overlay */}
+          <FrequencyHistogram
+            text={text || ciphertext}
+            title="Live Monogram Frequency Spectrum"
+            label={text ? 'Decoded Text %' : 'Ciphertext %'}
+          />
 
           {/* Decoded Text Viewer */}
           <div className="card space-y-3">
