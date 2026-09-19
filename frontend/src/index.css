@@ -23,16 +23,20 @@
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-cyber-800/80 bg-cyber-900/80 p-5 shadow-card-cyber backdrop-blur-xl transition-all duration-300 hover:border-cyber-700;
+    @apply rounded-2xl border border-cyber-800/80 bg-cyber-900/80 p-5 backdrop-blur-xl transition-all duration-300 hover:border-cyber-700;
+    box-shadow: 0 10px 40px -15px rgba(0, 0, 0, 0.8), 0 0 20px 0 rgba(0, 255, 135, 0.08);
   }
   .card-glow {
-    @apply rounded-2xl border border-matrix-500/30 bg-cyber-900/80 p-5 shadow-glow-matrix backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-matrix-500/60;
+    @apply rounded-2xl border border-matrix-500/30 bg-cyber-900/80 p-5 backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-matrix-500/60;
+    box-shadow: 0 0 30px -5px rgba(0, 255, 135, 0.35);
   }
   .card-solar {
-    @apply rounded-2xl border border-solar-500/30 bg-cyber-900/80 p-5 shadow-glow-solar backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-solar-500/60;
+    @apply rounded-2xl border border-solar-500/30 bg-cyber-900/80 p-5 backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-solar-500/60;
+    box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.35);
   }
   .card-violet {
-    @apply rounded-2xl border border-neon-violet/30 bg-cyber-900/80 p-5 shadow-glow-violet backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-neon-violet/60;
+    @apply rounded-2xl border border-neon-violet/30 bg-cyber-900/80 p-5 backdrop-blur-xl transition-all duration-300 relative overflow-hidden hover:border-neon-violet/60;
+    box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.35);
   }
   .label {
     @apply mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-slate-400 font-display;
@@ -44,13 +48,16 @@
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer;
   }
   .btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-matrix-500 via-emerald-400 to-teal-300 text-cyber-950 font-bold shadow-glow-matrix hover:from-matrix-400 hover:to-emerald-300 hover:scale-[1.01];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-matrix-500 via-emerald-400 to-teal-300 text-cyber-950 font-bold hover:from-matrix-400 hover:to-emerald-300 hover:scale-[1.01];
+    box-shadow: 0 0 30px -5px rgba(0, 255, 135, 0.35);
   }
   .btn-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-solar-500 via-amber-500 to-neon-orange text-cyber-950 font-bold shadow-glow-solar hover:from-solar-400 hover:to-amber-400 hover:scale-[1.01];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-solar-500 via-amber-500 to-neon-orange text-cyber-950 font-bold hover:from-solar-400 hover:to-amber-400 hover:scale-[1.01];
+    box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.35);
   }
   .btn-violet {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-neon-violet via-purple-500 to-indigo-500 text-white font-bold shadow-glow-violet hover:from-purple-400 hover:to-indigo-400 hover:scale-[1.01];
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer bg-gradient-to-r from-neon-violet via-purple-500 to-indigo-500 text-white font-bold hover:from-purple-400 hover:to-indigo-400 hover:scale-[1.01];
+    box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.35);
   }
   .btn-ghost {
     @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer border border-cyber-800 bg-cyber-900/60 text-slate-300 hover:bg-cyber-800/80 hover:border-cyber-700 hover:text-white;
@@ -62,13 +69,16 @@
     @apply inline-flex items-center gap-1.5 rounded-full border border-cyber-800 bg-cyber-900/90 px-3 py-1 text-xs font-medium text-slate-300 backdrop-blur-md;
   }
   .chip-matrix {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-matrix-500/40 bg-matrix-500/10 px-3 py-1 text-xs font-medium text-matrix-300 backdrop-blur-md shadow-glow-matrix;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-matrix-500/40 bg-matrix-500/10 px-3 py-1 text-xs font-medium text-matrix-300 backdrop-blur-md;
+    box-shadow: 0 0 30px -5px rgba(0, 255, 135, 0.35);
   }
   .chip-solar {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-solar-500/40 bg-solar-500/10 px-3 py-1 text-xs font-medium text-solar-400 backdrop-blur-md shadow-glow-solar;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-solar-500/40 bg-solar-500/10 px-3 py-1 text-xs font-medium text-solar-400 backdrop-blur-md;
+    box-shadow: 0 0 30px -5px rgba(249, 115, 22, 0.35);
   }
   .chip-violet {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-neon-violet/40 bg-neon-violet/10 px-3 py-1 text-xs font-medium text-purple-300 backdrop-blur-md shadow-glow-violet;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-neon-violet/40 bg-neon-violet/10 px-3 py-1 text-xs font-medium text-purple-300 backdrop-blur-md;
+    box-shadow: 0 0 30px -5px rgba(168, 85, 247, 0.35);
   }
   .mono {
     @apply font-mono text-xs leading-relaxed tracking-wider;
