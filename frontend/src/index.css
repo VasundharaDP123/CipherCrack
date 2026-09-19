@@ -4,55 +4,82 @@
 
 @layer base {
   body {
-    @apply bg-[#09090b] text-zinc-100 antialiased font-sans selection:bg-indigo-500/30 selection:text-indigo-200 min-h-screen;
+    @apply bg-cyber-950 text-slate-100 antialiased font-sans selection:bg-matrix-500/30 selection:text-matrix-300 min-h-screen relative overflow-x-hidden;
     background-image:
-      radial-gradient(1200px 600px at 20% -10%, rgba(99, 102, 241, 0.12), transparent 60%),
-      radial-gradient(1000px 500px at 80% 20%, rgba(139, 92, 246, 0.08), transparent 65%),
-      radial-gradient(900px 700px at 50% 110%, rgba(16, 185, 129, 0.06), transparent 70%);
+      radial-gradient(1000px 500px at 15% -5%, rgba(0, 255, 135, 0.12), transparent 60%),
+      radial-gradient(900px 500px at 85% 15%, rgba(249, 115, 22, 0.10), transparent 65%),
+      radial-gradient(1100px 700px at 50% 105%, rgba(168, 85, 247, 0.08), transparent 70%),
+      linear-gradient(to right, rgba(255, 255, 255, 0.015) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.015) 1px, transparent 1px);
+    background-size: 100% 100%, 100% 100%, 100% 100%, 40px 40px, 40px 40px;
     background-attachment: fixed;
   }
 }
 
 @layer components {
   .card {
-    @apply rounded-2xl border border-zinc-800/80 bg-zinc-900/80 p-5 shadow-xl backdrop-blur-xl transition-all duration-300 hover:border-zinc-700/90;
+    @apply rounded-2xl border border-cyber-800/80 bg-cyber-900/80 p-5 shadow-card-cyber backdrop-blur-xl transition-all duration-300 hover:border-cyber-700;
   }
   .card-glow {
-    @apply card relative overflow-hidden border-indigo-500/30 shadow-glow hover:border-indigo-500/50;
+    @apply card relative overflow-hidden border-matrix-500/30 shadow-glow-matrix hover:border-matrix-500/60;
+  }
+  .card-solar {
+    @apply card relative overflow-hidden border-solar-500/30 shadow-glow-solar hover:border-solar-500/60;
+  }
+  .card-violet {
+    @apply card relative overflow-hidden border-neon-violet/30 shadow-glow-violet hover:border-neon-violet/60;
   }
   .label {
-    @apply mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-zinc-400 font-display;
+    @apply mb-2 flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-slate-400 font-display;
   }
   .input {
-    @apply w-full rounded-xl border border-zinc-800 bg-zinc-950/90 px-3.5 py-2.5 text-sm font-mono text-zinc-100 outline-none transition-all duration-200 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/20 placeholder:text-zinc-600;
+    @apply w-full rounded-xl border border-cyber-800 bg-cyber-950/90 px-3.5 py-2.5 text-sm font-mono text-slate-100 outline-none transition-all duration-200 focus:border-matrix-500 focus:ring-2 focus:ring-matrix-500/20 placeholder:text-slate-600;
   }
   .btn {
-    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display;
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-4 py-2.5 text-sm font-semibold tracking-wide transition-all duration-200 active:scale-[0.98] disabled:cursor-not-allowed disabled:opacity-40 disabled:active:scale-100 font-display cursor-pointer;
   }
   .btn-primary {
-    @apply btn bg-gradient-to-r from-indigo-500 via-indigo-600 to-violet-600 text-white font-bold shadow-lg shadow-indigo-500/25 hover:from-indigo-400 hover:via-indigo-500 hover:to-violet-500 hover:shadow-indigo-500/40;
+    @apply btn bg-gradient-to-r from-matrix-500 via-emerald-400 to-teal-300 text-cyber-950 font-bold shadow-glow-matrix hover:from-matrix-400 hover:to-emerald-300 hover:scale-[1.01];
   }
   .btn-secondary {
-    @apply btn bg-gradient-to-r from-violet-600 via-purple-600 to-fuchsia-600 text-white font-bold shadow-lg shadow-violet-500/25 hover:from-violet-500 hover:via-purple-500 hover:to-fuchsia-500;
+    @apply btn bg-gradient-to-r from-solar-500 via-amber-500 to-neon-orange text-cyber-950 font-bold shadow-glow-solar hover:from-solar-400 hover:to-amber-400 hover:scale-[1.01];
+  }
+  .btn-violet {
+    @apply btn bg-gradient-to-r from-neon-violet via-purple-500 to-indigo-500 text-white font-bold shadow-glow-violet hover:from-purple-400 hover:to-indigo-400 hover:scale-[1.01];
   }
   .btn-ghost {
-    @apply btn border border-zinc-800 bg-zinc-900/60 text-zinc-300 hover:bg-zinc-800/80 hover:border-zinc-700 hover:text-white;
+    @apply btn border border-cyber-800 bg-cyber-900/60 text-slate-300 hover:bg-cyber-800/80 hover:border-cyber-700 hover:text-white;
   }
   .btn-danger {
     @apply btn bg-gradient-to-r from-rose-600 to-red-600 text-white font-bold shadow-lg shadow-rose-600/25 hover:from-rose-500 hover:to-red-500;
   }
   .chip {
-    @apply inline-flex items-center gap-1.5 rounded-full border border-zinc-800 bg-zinc-900/90 px-3 py-1 text-xs font-medium text-zinc-300 backdrop-blur-md;
+    @apply inline-flex items-center gap-1.5 rounded-full border border-cyber-800 bg-cyber-900/90 px-3 py-1 text-xs font-medium text-slate-300 backdrop-blur-md;
   }
-  .chip-glow {
-    @apply chip border-indigo-500/30 bg-indigo-500/10 text-indigo-300;
+  .chip-matrix {
+    @apply chip border-matrix-500/40 bg-matrix-500/10 text-matrix-300 shadow-glow-matrix;
+  }
+  .chip-solar {
+    @apply chip border-solar-500/40 bg-solar-500/10 text-solar-400 shadow-glow-solar;
+  }
+  .chip-violet {
+    @apply chip border-neon-violet/40 bg-neon-violet/10 text-purple-300 shadow-glow-violet;
   }
   .mono {
     @apply font-mono text-xs leading-relaxed tracking-wider;
+  }
+  .glow-text-matrix {
+    text-shadow: 0 0 12px rgba(0, 255, 135, 0.6);
+  }
+  .glow-text-solar {
+    text-shadow: 0 0 12px rgba(249, 115, 22, 0.6);
+  }
+  .glow-text-violet {
+    text-shadow: 0 0 12px rgba(168, 85, 247, 0.6);
   }
 }
 
 /* Custom Scrollbars */
 ::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { @apply bg-zinc-950; }
-::-webkit-scrollbar-thumb { @apply rounded-full bg-zinc-800 hover:bg-zinc-700 transition-colors; }
+::-webkit-scrollbar-track { @apply bg-cyber-950; }
+::-webkit-scrollbar-thumb { @apply rounded-full bg-cyber-800 hover:bg-cyber-700 transition-colors; }

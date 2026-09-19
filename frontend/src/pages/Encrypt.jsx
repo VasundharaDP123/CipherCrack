@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import {
-  Lock, Dices, Copy, Check, ArrowRight, RotateCcw, Key, FileText, Sparkles, Info,
+  Lock, Dices, Copy, Check, ArrowRight, RotateCcw, Key, FileText, Sparkles,
 } from 'lucide-react'
 import { api } from '../lib/api'
 import { ErrorNote, Field, PageHeader, Stat } from '../components/Shared'
@@ -70,13 +70,13 @@ export default function Encrypt() {
       <div className="grid gap-6 lg:grid-cols-2">
         {/* Input Configuration */}
         <div className="card space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+          <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-              <FileText className="h-4 w-4 text-amber-400" />
+              <FileText className="h-4 w-4 text-solar-400" />
               1. Plaintext Message
             </h2>
             <button
-              className="text-xs text-slate-400 hover:text-amber-400 flex items-center gap-1 transition"
+              className="text-xs text-slate-400 hover:text-solar-400 flex items-center gap-1 transition"
               onClick={() => setText(SAMPLE)}
             >
               <RotateCcw className="h-3.5 w-3.5" />
@@ -125,7 +125,7 @@ export default function Encrypt() {
                   type="button"
                   title="Generate Random Key"
                 >
-                  <Dices className="h-4 w-4 text-amber-400" />
+                  <Dices className="h-4 w-4 text-solar-400" />
                   Roll
                 </button>
               </div>
@@ -144,13 +144,13 @@ export default function Encrypt() {
 
         {/* Generated Output Puzzle */}
         <div className="card space-y-5">
-          <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+          <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
             <h2 className="text-sm font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-              <Key className="h-4 w-4 text-purple-400" />
+              <Key className="h-4 w-4 text-neon-violet" />
               2. Encrypted Output Puzzle
             </h2>
             {result && (
-              <span className="chip border-purple-500/30 bg-purple-500/10 text-purple-300">
+              <span className="chip-violet font-mono text-[11px]">
                 Ready for Cryptanalysis
               </span>
             )}
@@ -158,7 +158,7 @@ export default function Encrypt() {
 
           {!result ? (
             <div className="flex flex-col items-center justify-center py-16 text-center text-slate-500 space-y-3">
-              <div className="h-12 w-12 rounded-full bg-cyber-950 border border-slate-800 flex items-center justify-center text-slate-600">
+              <div className="h-12 w-12 rounded-full bg-cyber-950 border border-cyber-800 flex items-center justify-center text-slate-600">
                 <Lock className="h-6 w-6" />
               </div>
               <p className="text-sm">Configure your message on the left and click <strong className="text-slate-300">Generate</strong> to inspect the ciphertext output.</p>
@@ -167,7 +167,7 @@ export default function Encrypt() {
             <div className="space-y-5">
               <div className="grid grid-cols-3 gap-3">
                 <Stat label="Cipher Type" value={result.cipher} tone="purple" />
-                <Stat label="Length" value={result.length} sub="characters" tone="accent" />
+                <Stat label="Length" value={result.length} sub="characters" tone="warn" />
                 <Stat
                   label="Log-Prob / Char"
                   value={result.score_per_char.toFixed(2)}
@@ -178,7 +178,7 @@ export default function Encrypt() {
 
               <div>
                 <Field label="Key Used">
-                  <div className="font-mono text-xs break-all rounded-xl border border-purple-500/20 bg-purple-500/10 p-3 text-purple-200 font-bold tracking-wider">
+                  <div className="font-mono text-xs break-all rounded-xl border border-neon-violet/30 bg-neon-violet/10 p-3 text-purple-200 font-black tracking-wider shadow-glow-violet">
                     {result.key}
                   </div>
                 </Field>
@@ -186,7 +186,7 @@ export default function Encrypt() {
 
               <div>
                 <Field label="Ciphertext Output">
-                  <div className="font-mono text-xs max-h-48 overflow-auto break-words rounded-xl border border-slate-700/60 bg-cyber-950 p-4 leading-relaxed text-amber-300">
+                  <div className="font-mono text-xs max-h-48 overflow-auto break-words rounded-xl border border-cyber-800 bg-cyber-950 p-4 leading-relaxed text-solar-400 font-bold glow-text-solar">
                     {result.ciphertext}
                   </div>
                 </Field>
@@ -200,7 +200,7 @@ export default function Encrypt() {
                 <button className="btn-ghost py-3" onClick={copy}>
                   {copied ? (
                     <>
-                      <Check className="h-4 w-4 text-emerald-400" />
+                      <Check className="h-4 w-4 text-matrix-400" />
                       Copied!
                     </>
                   ) : (
@@ -212,7 +212,7 @@ export default function Encrypt() {
                 </button>
               </div>
 
-              <div className="rounded-xl border border-slate-800 bg-cyber-950/60 p-3.5 text-xs text-slate-400 leading-relaxed">
+              <div className="rounded-xl border border-cyber-800 bg-cyber-950/60 p-3.5 text-xs text-slate-400 leading-relaxed">
                 <strong className="text-slate-300">Note:</strong> Transposition ciphers strip whitespace and non-alpha characters. Monoalphabetic substitution and Caesar preserve word spaces, providing structural hints for statistical bigram scoring.
               </div>
             </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import {
-  Sliders, Sparkles, Layers, Activity, CheckCircle2, AlertCircle, BookOpen, Compass, LineChart as LineChartIcon, ArrowRight,
+  Sliders, Sparkles, Layers, Activity, CheckCircle2, AlertCircle, BookOpen, Compass, LineChart as LineChartIcon,
 } from 'lucide-react'
 import {
   CartesianGrid, Line, LineChart, ResponsiveContainer, Scatter, ScatterChart,
@@ -87,12 +87,12 @@ export default function Playground() {
         {/* Left Column: Interactive Controls & Telemetry */}
         <div className="space-y-5">
           <div className="card space-y-5">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+            <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Sliders className="h-4 w-4 text-amber-400" />
+                <Sliders className="h-4 w-4 text-solar-400" />
                 Proposal Step Size (Standard Dev)
               </h2>
-              <span className="font-mono text-xs font-bold text-amber-400 bg-amber-500/10 border border-amber-500/20 px-2.5 py-0.5 rounded-full">
+              <span className="chip-solar font-mono text-xs font-bold">
                 σ = {Number(stepSize).toFixed(2)}
               </span>
             </div>
@@ -107,7 +107,7 @@ export default function Playground() {
                 onChange={(e) => setStepSize(e.target.value)}
                 onMouseUp={(e) => sample(e.target.value)}
                 onTouchEnd={(e) => sample(stepSize)}
-                className="w-full accent-amber-400 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-slate-800"
+                className="w-full accent-solar-500 cursor-pointer h-2 bg-cyber-950 rounded-lg border border-cyber-800"
               />
               <p className="mt-2 text-xs text-slate-500 leading-relaxed">
                 Release slider to resample 4,000 steps from the 2D Gaussian mixture.
@@ -118,10 +118,10 @@ export default function Playground() {
               {PRESETS.map((preset) => (
                 <button
                   key={preset.value}
-                  className={`chip justify-center py-2 text-xs font-medium cursor-pointer transition ${
+                  className={`chip justify-center py-2 text-xs font-semibold cursor-pointer transition ${
                     Number(stepSize) === preset.value
-                      ? 'border-amber-400 bg-amber-500/20 text-amber-300 font-bold'
-                      : 'hover:border-slate-600 hover:text-slate-200'
+                      ? 'chip-solar font-bold'
+                      : 'hover:border-cyber-700 hover:text-slate-200'
                   }`}
                   onClick={() => {
                     setStepSize(preset.value)
@@ -138,8 +138,8 @@ export default function Playground() {
                 <Sparkles className="h-4 w-4" />
                 Resample Chain
               </button>
-              <button className="btn-ghost" onClick={compare} disabled={busy}>
-                <Layers className="h-4 w-4 text-purple-400" />
+              <button className="btn-violet" onClick={compare} disabled={busy}>
+                <Layers className="h-4 w-4 text-purple-300" />
                 vs emcee
               </button>
             </div>
@@ -181,15 +181,15 @@ export default function Playground() {
                 <div
                   className={`rounded-xl border p-3.5 text-xs font-medium leading-relaxed space-y-1 ${
                     note.tone === 'good'
-                      ? 'border-emerald-500/30 bg-emerald-500/10 text-emerald-200'
-                      : 'border-amber-500/30 bg-amber-500/10 text-amber-200'
+                      ? 'border-matrix-500/40 bg-matrix-500/10 text-matrix-300 shadow-glow-matrix'
+                      : 'border-solar-500/40 bg-solar-500/10 text-solar-300 shadow-glow-solar'
                   }`}
                 >
                   <div className="font-bold font-display flex items-center gap-1.5 text-sm">
                     {note.tone === 'good' ? (
-                      <CheckCircle2 className="h-4 w-4 text-emerald-400" />
+                      <CheckCircle2 className="h-4 w-4 text-matrix-400" />
                     ) : (
-                      <AlertCircle className="h-4 w-4 text-amber-400" />
+                      <AlertCircle className="h-4 w-4 text-solar-400" />
                     )}
                     {note.title}
                   </div>
@@ -202,18 +202,18 @@ export default function Playground() {
           {/* Library Comparison with emcee */}
           {comparison && (
             <div className="card space-y-3">
-              <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+              <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
                 <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                  <Layers className="h-4 w-4 text-purple-400" />
+                  <Layers className="h-4 w-4 text-neon-violet" />
                   Library Comparison (emcee)
                 </h2>
-                <span className="chip border-purple-500/30 bg-purple-500/10 text-purple-300 font-mono text-[11px]">
+                <span className="chip-violet font-mono text-[11px]">
                   Ensemble MCMC
                 </span>
               </div>
               <table className="w-full text-xs border-collapse">
                 <thead>
-                  <tr className="border-b border-slate-800 text-slate-500 font-display uppercase tracking-wider text-[10px]">
+                  <tr className="border-b border-cyber-800 text-slate-500 font-display uppercase tracking-wider text-[10px]">
                     <th className="p-2 text-left">Sampler</th>
                     <th className="p-2 text-right">Acceptance</th>
                     <th className="p-2 text-right">ESS (X / Y)</th>
@@ -221,9 +221,9 @@ export default function Playground() {
                 </thead>
                 <tbody>
                   {comparison.results.map((row) => (
-                    <tr key={row.sampler} className="border-b border-slate-800/40 font-mono">
+                    <tr key={row.sampler} className="border-b border-cyber-800/60 font-mono">
                       <td className="p-2 font-sans font-semibold text-slate-300">{row.sampler}</td>
-                      <td className="p-2 text-right font-bold text-amber-300">
+                      <td className="p-2 text-right font-bold text-solar-400">
                         {row.error ? '—' : `${(row.acceptance_rate * 100).toFixed(1)}%`}
                       </td>
                       <td className="p-2 text-right text-slate-400">
@@ -243,50 +243,51 @@ export default function Playground() {
         <div className="space-y-5">
           {/* 2D Mixture Density Plot */}
           <div className="card space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+            <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <Compass className="h-4 w-4 text-amber-400" />
+                <Compass className="h-4 w-4 text-solar-400" />
                 2D Metropolis-Hastings Chain Trajectory
               </h2>
-              <span className="chip text-[11px] font-mono">Target: 3-Gaussian Mixture</span>
+              <span className="chip-matrix font-mono text-[11px]">Target: 3-Gaussian Mixture</span>
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Amber dots show accepted 2D sample locations. Rose crosses show true Gaussian mixture means.
+              Solar Orange dots show accepted 2D sample locations. Matrix Lime crosses show true Gaussian mixture means.
             </p>
-            <div className="h-[340px] w-full rounded-xl border border-slate-800/80 bg-cyber-950/80 p-2">
+            <div className="h-[340px] w-full rounded-xl border border-cyber-800 bg-cyber-950/90 p-2">
               {data && (
                 <ResponsiveContainer width="100%" height="100%">
                   <ScatterChart margin={{ top: 10, right: 15, bottom: 5, left: -20 }}>
-                    <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" />
+                    <CartesianGrid stroke="#1f2937" strokeDasharray="3 3" />
                     <XAxis
                       type="number"
                       dataKey="0"
                       domain={[-6, 6]}
-                      tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }}
-                      stroke="#334155"
+                      tick={{ fill: '#94a3b8', fontSize: 10, fontFamily: 'monospace' }}
+                      stroke="#374151"
                     />
                     <YAxis
                       type="number"
                       dataKey="1"
                       domain={[-6, 6]}
-                      tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }}
-                      stroke="#334155"
+                      tick={{ fill: '#94a3b8', fontSize: 10, fontFamily: 'monospace' }}
+                      stroke="#374151"
                     />
                     <ZAxis range={[6, 6]} />
                     <Tooltip
                       contentStyle={{
-                        background: '#0e0b16',
-                        border: '1px solid rgba(245, 158, 11, 0.3)',
+                        background: '#0a0f1d',
+                        border: '1px solid rgba(249, 115, 22, 0.4)',
                         borderRadius: 12,
                         fontSize: 12,
                         fontFamily: 'monospace',
+                        boxShadow: '0 0 15px rgba(249, 115, 22, 0.2)',
                       }}
                       formatter={(v) => (typeof v === 'number' ? v.toFixed(2) : v)}
                     />
-                    <Scatter data={data.samples} fill="#f59e0b" fillOpacity={0.35} />
+                    <Scatter data={data.samples} fill="#f97316" fillOpacity={0.45} />
                     <Scatter
                       data={data.components.map((c) => ({ 0: c.mean[0], 1: c.mean[1] }))}
-                      fill="#ff2a6d"
+                      fill="#00ff87"
                       shape="cross"
                     />
                   </ScatterChart>
@@ -297,23 +298,23 @@ export default function Playground() {
 
           {/* 1D Trace Plot */}
           <div className="card space-y-3">
-            <div className="flex items-center justify-between border-b border-slate-800/80 pb-3">
+            <div className="flex items-center justify-between border-b border-cyber-800/80 pb-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-slate-300 font-display flex items-center gap-2">
-                <LineChartIcon className="h-4 w-4 text-purple-400" />
+                <LineChartIcon className="h-4 w-4 text-matrix-400" />
                 1D Coordinate Chain Trace Plot (X-Axis Mixing)
               </h2>
-              <span className="chip text-[11px] font-mono">First 400 Steps</span>
+              <span className="chip-matrix font-mono text-[11px]">First 400 Steps</span>
             </div>
-            <div className="h-40 w-full rounded-xl border border-slate-800/80 bg-cyber-950/80 p-2">
+            <div className="h-40 w-full rounded-xl border border-cyber-800 bg-cyber-950/90 p-2">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={trace} margin={{ top: 5, right: 15, bottom: 5, left: -20 }}>
-                  <CartesianGrid stroke="#1e293b" strokeDasharray="3 3" vertical={false} />
-                  <XAxis dataKey="i" tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }} stroke="#334155" />
-                  <YAxis tick={{ fill: '#64748b', fontSize: 10, fontFamily: 'monospace' }} stroke="#334155" />
+                  <CartesianGrid stroke="#1f2937" strokeDasharray="3 3" vertical={false} />
+                  <XAxis dataKey="i" tick={{ fill: '#94a3b8', fontSize: 10, fontFamily: 'monospace' }} stroke="#374151" />
+                  <YAxis tick={{ fill: '#94a3b8', fontSize: 10, fontFamily: 'monospace' }} stroke="#374151" />
                   <Line
                     type="monotone"
                     dataKey="x"
-                    stroke="#9d4edd"
+                    stroke="#00ff87"
                     strokeWidth={1.5}
                     dot={false}
                     isAnimationActive={false}
@@ -324,15 +325,15 @@ export default function Playground() {
           </div>
 
           {/* Box-Muller Theoretical Card */}
-          <div className="card border-purple-500/20 bg-purple-500/5 space-y-2">
+          <div className="card-violet space-y-2">
             <div className="text-xs font-bold uppercase tracking-widest text-purple-300 font-display flex items-center gap-2">
-              <BookOpen className="h-4 w-4 text-purple-400" />
+              <BookOpen className="h-4 w-4 text-neon-violet" />
               Box-Muller Gaussian Random Number Generator
             </div>
             <p className="text-xs text-slate-400 leading-relaxed">
               Every proposal step is generated from scratch using exact Box-Muller transforms:
             </p>
-            <div className="font-mono text-xs bg-cyber-950 p-3 rounded-xl border border-purple-500/20 text-purple-200">
+            <div className="font-mono text-xs bg-cyber-950 p-3 rounded-xl border border-neon-violet/30 text-purple-200">
               R = sqrt(-2 ln U₁), θ = 2π U₂ &nbsp;→&nbsp; Z₁ = R cos(θ), Z₂ = R sin(θ)
             </div>
           </div>
