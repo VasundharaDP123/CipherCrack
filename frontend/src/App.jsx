@@ -11,6 +11,7 @@ import Crack from './pages/Crack.jsx'
 import Encrypt from './pages/Encrypt.jsx'
 import Identify from './pages/Identify.jsx'
 import Playground from './pages/Playground.jsx'
+import SecureVault from './pages/SecureVault.jsx'
 
 const PAGES = [
   { to: '/crack', label: 'Crack Live', icon: KeyRound, tag: 'Live MCMC' },
@@ -19,6 +20,7 @@ const PAGES = [
   { to: '/playground', label: 'MCMC Playground', icon: Sliders, tag: 'Sampling' },
   { to: '/arena', label: 'Algorithm Arena', icon: Swords, tag: 'Benchmarks' },
   { to: '/challenge', label: 'Challenge Mode', icon: Trophy, tag: 'Race AI' },
+  { to: '/vault', label: 'Secure Vault', icon: ShieldCheck, tag: 'Task 1 & 2' },
 ]
 
 function Header({ health }) {
@@ -133,6 +135,7 @@ export default function App() {
           <Route path="/playground" element={<Playground />} />
           <Route path="/arena" element={<Arena />} />
           <Route path="/challenge" element={<Challenge />} />
+          <Route path="/vault" element={<SecureVault />} />
           <Route path="*" element={<Navigate to="/crack" replace />} />
         </Routes>
       </main>

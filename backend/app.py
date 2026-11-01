@@ -15,7 +15,7 @@ from flask_cors import CORS
 from flask_socketio import SocketIO
 
 import db
-from api import api, register_sockets
+from api import api, secure, register_sockets
 
 # Origins the browser may connect from: the Vite dev server (5173), Vite's
 # preview server (4173), and the backend's own port for anyone who opens the API
@@ -33,6 +33,7 @@ def create_app():
     CORS(app, resources={r"/*": {"origins": "*"}}, supports_credentials=True)
 
     app.register_blueprint(api)
+    app.register_blueprint(secure)
     db.init()
 
     @app.get("/")

@@ -44,4 +44,14 @@ export const api = {
   leaderboard: () => request('/leaderboard'),
   addScore: (payload) => post('/leaderboard', payload),
   newChallenge: (difficulty) => request(`/challenge/new?difficulty=${difficulty}`),
+
+  // Task 1 — AES-256 symmetric encryption
+  aesKeygen: (bits = 256) => request(`/aes/keygen?bits=${bits}`),
+  aesEncrypt: (payload) => post('/aes/encrypt', payload),
+  aesDecrypt: (payload) => post('/aes/decrypt', payload),
+
+  // Task 2 — RSA-2048 + AES-256 Simple Hybrid System
+  hybridKeygen: (bits = 2048) => post('/hybrid/keygen', { bits }),
+  hybridEncrypt: (payload) => post('/hybrid/encrypt', payload),
+  hybridDecrypt: (payload) => post('/hybrid/decrypt', payload),
 }
